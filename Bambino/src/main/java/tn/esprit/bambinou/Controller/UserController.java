@@ -55,7 +55,7 @@ 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
 
 
     // http://localhost:8089/user/retrieve-all-users
-    @GetMapping("/list")
+    @GetMapping("/retrieve-all-users")
     public List<User> getUsers() {
         return userService.retrieveAllUsers();
     }

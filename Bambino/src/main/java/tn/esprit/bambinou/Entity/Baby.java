@@ -1,5 +1,6 @@
 package tn.esprit.bambinou.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,12 @@ public class Baby {
     public void setIdBaby(Long idBaby) {
         this.idBaby = idBaby;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User userPatient;
+
 
 
 
@@ -102,4 +109,12 @@ public class Baby {
     public void setEmergencyContact(String emergencyContact) {
         EmergencyContact = emergencyContact;
     }
+    public User getUserPatient() {
+        return userPatient;
+    }
+
+    public void setUserPatient(User userPatient) {
+        this.userPatient = userPatient;
+    }
+
 }
